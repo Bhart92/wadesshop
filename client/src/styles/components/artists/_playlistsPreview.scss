@@ -1,12 +1,12 @@
 .artists--playlist-preview--container{
-    height: 100vh;
+    height: auto;
     width: 100%;
     display: flex;
-    margin-top: 58px;
     align-items: center;
     justify-content: center;
 }
 .artists--playlist-preview{
+    margin: 10rem;
     width: 90%;
     height: 90%;
     position: relative;
@@ -31,6 +31,21 @@
         height: 380px;
         background-position: top;
         background-size: contain;
+    }
+}
+@media(max-width: 650px){
+    .artist--card-wrapper{
+        width: 95%;
+        margin: 5rem 0;
+        &:last-of-type{
+            margin-bottom: 0;
+        }
+    }
+    .artists--card{
+        width: 100%!important;
+    }  
+    .artists--playlist-preview{
+        margin: 10rem 2rem;
     }
 }
 .artist--card-wrapper{

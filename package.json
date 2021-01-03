@@ -12,6 +12,7 @@
     "mongoose": "^5.11.9",
     "nodemon": "^2.0.6",
     "react-background-slider": "^2.0.0",
+    "react-transition-group": "^4.4.1",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
     "request": "^2.88.2",

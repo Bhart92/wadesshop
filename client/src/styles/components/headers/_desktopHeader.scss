@@ -5,11 +5,12 @@
     top: 0;
     left: 0;
     right: 0;
-    background: white;
+    background: $black;
     display: flex;
     justify-content: space-between;
     padding: 0 7rem;
     z-index: 100000;
+    border-bottom: .001px solid rgba(255, 255, 255, .1);
 }
 .header--logo-links{
     display: flex;
@@ -39,7 +40,7 @@
 }
 .fa-cotton-bureau{
     font-size: 6rem;
-
+    color: #f4f4f4;
 }
 .header--social-links{
     height: 100%;

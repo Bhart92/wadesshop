@@ -1,11 +1,12 @@
 import React, { Fragment } from 'react';
 import { gsap } from "gsap";
+import {isMobile} from 'react-device-detect';
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { Link } from 'react-router-dom';
 
 gsap.registerPlugin(ScrollToPlugin);
 
-const Header = () => {
+const DesktopHeader = () => {
     const scrollToSection = (string) => {
 		const sections = Array.from(document.querySelectorAll('.section'));
 		return gsap.to(window, {duration: 1.25, scrollTo: `#${sections.filter((section, i) => section.id === string)[0].id}`});
@@ -36,4 +37,4 @@ const Header = () => {
 }
 
 
-export default Header;
+export default DesktopHeader;

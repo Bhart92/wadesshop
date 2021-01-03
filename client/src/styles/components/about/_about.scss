@@ -3,12 +3,17 @@
     padding: 60px 75px;
     position: relative;
     height: 95vh;
+    background: $black;
     h1{
+        color: $white;
         font-size: 6rem;
     }
     span{
+        color: $white;
         font-size: 1.75rem;
         opacity: .73;
+        word-break: break-all;
+        word-wrap: break-word;
 
     }
 }
@@ -19,7 +24,7 @@
     transform: translate(-50%, 0);
     height: 50vh;
     width: 95%;
-    background: black;
+    background: $black;
     background-position: center!important;
     background-size: cover!important;
     background-repeat: no-repeat!important;

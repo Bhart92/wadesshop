@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import BackgroundSlider from 'react-background-slider'
 import SocialMedia from '../footer/SocialMedia';
 import Footer from '../footer/Footer';
-import Header from './Header';
+import DesktopHeader from '../headers/DesktopHeader';
+import MobileHeader from '../headers/MobileHeader';
+import {isMobile} from 'react-device-detect';
 
 
 import ArtistPreview from '../artists/ArtistPreview';
@@ -12,10 +14,19 @@ import { Link, Redirect } from 'react-router-dom';
 const LandingPage = () => {
     return (
         <Fragment>
-
-        <Fragment>
-             <Header />
-        </Fragment>
+            <Fragment>
+                {isMobile ? (
+                <Fragment>
+                <MobileHeader />
+                </Fragment> 
+                )
+                : 
+                (
+                <Fragment>
+                <DesktopHeader />
+                </Fragment>
+                )}
+            </Fragment>
         <Fragment>
             <section id='home-section' className='landing--container section'>
                 <div className='container'>

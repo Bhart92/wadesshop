@@ -1,8 +1,11 @@
 @import './base/settings';
 @import './base/base';
+@import './base/navTransitions';
 @import url('https://fonts.googleapis.com/css?family=Fugaz+One|Lato:300,400&display=swap');
 @import './components/landing/landing';
-@import './components/landing/header';
+@import './components/headers/desktopHeader';
+@import './components/headers/burger';
+@import './components/headers/mobileHeader';
 @import './components/layout/filler';
 @import './components/artists/playlistsPreview';
 @import './components/about/about';
