@@ -15,6 +15,7 @@ const Footer = () => {
                  <i class="fas fa-gem"></i>
                  <i class="fas fa-record-vinyl"></i>
                  </div>
+                 <span>Serving the community for over 15 years</span>
                 </div>
             <div className='footer--bottom'>
                 &copy; All rights reserved
