@@ -30,12 +30,7 @@ const LandingPage = () => {
             <section id='artist-section' className='artists--playlist-preview--container section'>
                 <ArtistPreview />
             </section>
-            <section className='image--filler-section' style={{background: `linear-gradient(to bottom left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.9) 100%), url('solo.jpg')`}}>
-
-            
-
-
-            </section>
+            <section className='image--filler-section' style={{background: `linear-gradient(to bottom left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.9) 100%), url('solo.jpg')`}}></section>
             <section className='social-media--section'>
                 <SocialMedia />
             </section>

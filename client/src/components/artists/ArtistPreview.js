@@ -20,9 +20,9 @@ const ArtistPreview = () => {
             <div className='artists--playlist-preview'>
                     <h1>Playlists</h1>
                  <div className='artists--card-container'>
-                     {artists.map((artist) => {
+                     {artists.map((artist, index) => {
                          return (
-                            <div className='artist--card-wrapper'>
+                            <div key={index} className='artist--card-wrapper'>
                                 <h2>Get In the Know</h2>
                                 <span>{artist.title}</span>
                                     <div className='artists--card' style={{ backgroundImage: `url('${artist.image}')` }}></div>
