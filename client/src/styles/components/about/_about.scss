@@ -1,0 +1,26 @@
+.about--section{
+    margin-top: 120px;
+    padding: 60px 75px;
+    position: relative;
+    height: 95vh;
+    h1{
+        font-size: 6rem;
+    }
+    span{
+        font-size: 1.75rem;
+        opacity: .73;
+
+    }
+}
+.about--image{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    height: 50vh;
+    width: 95%;
+    background: black;
+    background-position: center!important;
+    background-size: cover!important;
+    background-repeat: no-repeat!important;
+}

@@ -1,9 +1,10 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import BackgroundSlider from 'react-background-slider'
-import Header from './Header';
 import SocialMedia from '../footer/SocialMedia';
 import Footer from '../footer/Footer';
+import Header from './Header';
+
 
 import ArtistPreview from '../artists/ArtistPreview';
 import { Link, Redirect } from 'react-router-dom';
@@ -11,8 +12,12 @@ import { Link, Redirect } from 'react-router-dom';
 const LandingPage = () => {
     return (
         <Fragment>
+
+        <Fragment>
+             <Header />
+        </Fragment>
+        <Fragment>
             <section id='home-section' className='landing--container section'>
-                <Header />
                 <div className='container'>
                 <div className='landing--hero'>
                     <span>Trending</span>
@@ -37,6 +42,7 @@ const LandingPage = () => {
             <Fragment>
                 <Footer />
             </Fragment>
+        </Fragment>
         </Fragment>
     )
 }

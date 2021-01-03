@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { gsap } from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+import { Link } from 'react-router-dom';
 
 gsap.registerPlugin(ScrollToPlugin);
 
@@ -19,7 +20,7 @@ const Header = () => {
                         <div className='header--main-links'>
                             <span onClick={() => { scrollToSection('home-section') }}>Home</span>
                             <span onClick={() => { scrollToSection('artist-section') }}>Playlists</span>
-                            <span >Our Label</span>
+                            <span><Link to='/ourlabel'>Our Label</Link></span>
                             <span>Store</span>
                         </div>
                     </div>
