@@ -9,10 +9,9 @@ import ArtistPreview from '../artists/ArtistPreview';
 import { Link, Redirect } from 'react-router-dom';
 
 const LandingPage = () => {
-
     return (
         <Fragment>
-            <section className='landing--container'>
+            <section id='home-section' className='landing--container section'>
                 <Header />
                 <div className='container'>
                 <div className='landing--hero'>
@@ -28,13 +27,16 @@ const LandingPage = () => {
             </section>
 
 
-            <section className='artists--playlist-preview--container'>
+            <section id='artist-section' className='artists--playlist-preview--container section'>
                 <ArtistPreview />
             </section>
-            <section className='image--filler-section'>
-                <img src='#' alt='artist' />
+            <section className='image--filler-section' style={{background: `linear-gradient(to bottom left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.9) 100%), url('solo.jpg')`}}>
+
+            
+
+
             </section>
-            <section>
+            <section className='social-media--section'>
                 <SocialMedia />
             </section>
             <Fragment>

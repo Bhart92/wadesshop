@@ -1,18 +1,25 @@
 import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
+import { gsap } from "gsap";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+
+gsap.registerPlugin(ScrollToPlugin);
 
 const Header = () => {
+    const scrollToSection = (string) => {
+		const sections = Array.from(document.querySelectorAll('.section'));
+		return gsap.to(window, {duration: 1.25, scrollTo: `#${sections.filter((section, i) => section.id === string)[0].id}`});
+	};
     return (
         <Fragment>
             <div className='header'>
                     <div className='header--logo-links'>
                         <div className='header--logo'>
-                            <i class="fab fa-cotton-bureau"></i>
+                            <i onClick={() => { scrollToSection('home-section') }} class="fab fa-cotton-bureau"></i>
                         </div>
                         <div className='header--main-links'>
-                            <span>Home</span>
-                            <span>Artists</span>
-                            <span>Our Label</span>
+                            <span onClick={() => { scrollToSection('home-section') }}>Home</span>
+                            <span onClick={() => { scrollToSection('artist-section') }}>Playlists</span>
+                            <span >Our Label</span>
                             <span>Store</span>
                         </div>
                     </div>

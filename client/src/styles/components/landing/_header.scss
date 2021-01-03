@@ -1,14 +1,14 @@
 .header{
     height: 120px;
     width: 100%;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
     background: white;
     display: flex;
     justify-content: space-between;
-    padding: 0 10rem;
+    padding: 0 7rem;
     z-index: 100000;
 }
 .header--logo-links{
@@ -19,6 +19,7 @@
 }
 .header--logo{
     margin-right: 45px;
+    cursor: pointer;
 }
 .header--main-links{
     span{
@@ -26,10 +27,19 @@
         cursor: pointer;
         font-weight: 700;
         font-size: 1.65rem;
+        transition: all .35s ease;
+        -webkit-transition: all .35s ease;
+        -moz-transition: all .35s ease;
+        -ms-transition: all .35s ease;
+        -o-transition: all .35s ease;
+        &:hover{
+            color: grey;
+        }
     }
 }
 .fa-cotton-bureau{
     font-size: 6rem;
+
 }
 .header--social-links{
     height: 100%;
@@ -37,8 +47,16 @@
     align-items: center;
     justify-content: space-between; 
     i{
+        transition: all .35s ease;
+        -webkit-transition: all .35s ease;
+        -moz-transition: all .35s ease;
+        -ms-transition: all .35s ease;
+        -o-transition: all .35s ease;
         cursor: pointer;
         font-size: 2.5rem;
         margin: 0 25px;
+        &:hover{
+            color: grey;
+        }
     }
 }
