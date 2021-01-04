@@ -1,8 +1,8 @@
-import React, { useState, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import LinksHeader from '../headers/LinksHeader';
 import ProductDisplay from '../store/ProductDisplay';
 import Footer from '../footer/Footer';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 const StoreIndex = () => {
     return (

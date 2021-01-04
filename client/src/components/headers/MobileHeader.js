@@ -2,7 +2,6 @@ import React, { useState, Fragment } from 'react';
 import { gsap } from "gsap";
 import { slide as Menu } from 'react-burger-menu'
 import HamburgerMenu from 'react-hamburger-menu';
-import {isMobile} from 'react-device-detect';
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { Link } from 'react-router-dom';
 
@@ -23,6 +22,8 @@ const MobileHeader = () => {
             sections.map((section) => {
                 if(section.id !== undefined){
                     return gsap.to(window, {duration: 1.25, scrollTo: `#${sections.filter((section, i) => section.id === string)[0].id}`});
+                } else{
+                    return null;
                 }
             })
             

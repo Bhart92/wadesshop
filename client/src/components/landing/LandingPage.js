@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import BackgroundSlider from 'react-background-slider'
 import SocialMedia from '../footer/SocialMedia';
 import Footer from '../footer/Footer';
@@ -7,7 +7,6 @@ import DesktopHeader from '../headers/DesktopHeader';
 import MobileHeader from '../headers/MobileHeader';
 import {isMobile, isTablet, isBrowser} from 'react-device-detect';
 import ArtistPreview from '../artists/ArtistPreview';
-import { Link, Redirect } from 'react-router-dom';
 
 const LandingPage = () => {
     return (

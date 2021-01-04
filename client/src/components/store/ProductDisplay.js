@@ -1,6 +1,4 @@
-import React, { useState, Fragment } from 'react';
-import LinksHeader from '../headers/LinksHeader';
-import PropTypes from 'prop-types';
+import React, { Fragment } from 'react';
 
 const ProductDisplay = () => {
     const storeData = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
@@ -12,17 +10,17 @@ const ProductDisplay = () => {
                     <div className='filter-bar--clothes'>
                         <h3>Clothes</h3>
                         <ul>
-                            <li>Shirts</li>
-                            <li>Pants</li>
-                            <li>Accessories</li>
+                            <li><span>></span>Shirts</li>
+                            <li><span>></span>Pants</li>
+                            <li><span>></span>Accessories</li>
                         </ul>
                     </div>
                     <div className='filter-bar--jewlery'>
                     <h3>jewlery</h3>
                     <ul>
-                            <li>Necklaces</li>
-                            <li>Rings</li>
-                            <li>Watches</li>
+                            <li><span>></span>Necklaces</li>
+                            <li><span>></span>Rings</li>
+                            <li><span>></span>Watches</li>
                         </ul>
                     </div>
 

@@ -1,9 +1,6 @@
-import React, { useState, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import { gsap } from "gsap";
 import {isMobile, isTablet, isBrowser} from 'react-device-detect';
-import { slide as Menu } from 'react-burger-menu'
-import HamburgerMenu from 'react-hamburger-menu';
-import DesktopHeader from './DesktopHeader';
 import MobileHeader from './MobileHeader';
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { Link } from 'react-router-dom';
@@ -11,25 +8,11 @@ import { Link } from 'react-router-dom';
 gsap.registerPlugin(ScrollToPlugin);
 
 const LinksHeader = () => {
-    const [ isOpen, setIsOpen ] = useState(false);
-    const toggleMenu = () => {
-        // document.querySelector('body').classList.toggle('body-overflow');
-        setIsOpen(!isOpen);
-    };
-	const mobileScrollToSection = (string) => {
-        const sections = Array.from(document.querySelectorAll('.section'));
-        if(isOpen === false){
-            return gsap.to(window, {duration: 1.25, scrollTo: `#${sections.filter((section, i) => section.id === string)[0].id}`});
-        } else{
-            toggleMenu();
-            sections.map((section) => {
-                if(section.id !== undefined){
-                    return gsap.to(window, {duration: 1.25, scrollTo: `#${sections.filter((section, i) => section.id === string)[0].id}`});
-                }
-            })
-            
-        }
-    };
+    // const [ isOpen, setIsOpen ] = useState(false);
+    // const toggleMenu = () => {
+    //     // document.querySelector('body').classList.toggle('body-overflow');
+    //     setIsOpen(!isOpen);
+    // };
 
     return (
             <Fragment>

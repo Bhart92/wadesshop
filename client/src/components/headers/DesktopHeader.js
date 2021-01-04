@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import { gsap } from "gsap";
-import {isMobile} from 'react-device-detect';
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { Link } from 'react-router-dom';
 

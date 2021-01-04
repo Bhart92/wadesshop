@@ -1,5 +1,5 @@
-import React, { Fragment, useEffect } from 'react';
-import LandingPage from './components/landing/LandingPage';
+import React, { Fragment} from 'react';
+// import LandingPage from './components/landing/LandingPage';
 import Routes from './components/routing/Routes';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // import store from './store';
 // import setAuthToken from './utils/setAuthToken';
 import './styles/styles.scss';
-import { Provider } from 'react-redux';
+// import { Provider } from 'react-redux';
 // import { loadUser } from './actions/auth';
 
 // if (localStorage.token) {
