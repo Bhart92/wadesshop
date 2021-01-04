@@ -33,21 +33,6 @@
         background-size: contain;
     }
 }
-@media(max-width: 650px){
-    .artist--card-wrapper{
-        width: 95%;
-        margin: 5rem 0;
-        &:last-of-type{
-            margin-bottom: 0;
-        }
-    }
-    .artists--card{
-        width: 100%!important;
-    }  
-    .artists--playlist-preview{
-        margin: 10rem 2rem;
-    }
-}
 .artist--card-wrapper{
     font-weight: 700;
     word-spacing: -2px;
@@ -68,5 +53,40 @@
 .artists--card.third{
     background-image: url('../../artistCard3.jpg');
 }
+@media(max-width: 800px){
+    .artists--playlist-preview {
+        margin: 5rem;
+    }
+    .artists--playlist-preview h1 {
+        margin-bottom: -55px;
+    }
+    .artist--card-wrapper h2 {
+        font-size: 1.95rem!important;
+        margin-top: 55px;
+    }
+    .artist--card-wrapper span {
+        font-size: 1.65rem!important;
+    }
+    .artists--card-container {
+        margin-top: 35px;
+    }
+}
+@media(max-width: 650px){
+    .artist--card-wrapper{
+        width: 95%;
+        margin: 5rem 0;
+        &:last-of-type{
+            margin-bottom: 0;
+        }
+    }
+    .artists--card{
+        width: 100%!important;
+        margin-top: 5px;
+    }  
+    .artists--playlist-preview{
+        margin: 10rem 2rem;
+    }
+}
+
 
 

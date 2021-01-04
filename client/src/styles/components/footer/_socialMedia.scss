@@ -19,3 +19,9 @@
         // color: $black!important;
     }
 }
+.footer--social-links{
+    @extend .header--social-links;
+    i{
+        margin: 0 25px;
+    }
+}

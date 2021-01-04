@@ -5,27 +5,22 @@ import SocialMedia from '../footer/SocialMedia';
 import Footer from '../footer/Footer';
 import DesktopHeader from '../headers/DesktopHeader';
 import MobileHeader from '../headers/MobileHeader';
-import {isMobile} from 'react-device-detect';
-
-
+import {isMobile, isTablet, isBrowser} from 'react-device-detect';
 import ArtistPreview from '../artists/ArtistPreview';
 import { Link, Redirect } from 'react-router-dom';
 
 const LandingPage = () => {
     return (
         <Fragment>
+        <Fragment>
+            {isMobile && <MobileHeader />}
+            {isTablet && <MobileHeader />}
+            {isBrowser && (
             <Fragment>
-                {isMobile ? (
-                <Fragment>
-                <MobileHeader />
-                </Fragment> 
-                )
-                : 
-                (
-                <Fragment>
                 <DesktopHeader />
-                </Fragment>
-                )}
+            </Fragment>)
+                }
+
             </Fragment>
         <Fragment>
             <section id='home-section' className='landing--container section'>

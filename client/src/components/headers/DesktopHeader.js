@@ -15,9 +15,9 @@ const DesktopHeader = () => {
         <Fragment>
             <div className='header'>
                     <div className='header--logo-links'>
-                        <div className='header--logo'>
-                            <i onClick={() => { scrollToSection('home-section') }} class="fab fa-cotton-bureau"></i>
-                        </div>
+                        <Link to='/'><div className='header--logo'>
+                            <i class="fab fa-cotton-bureau"></i>
+                        </div></Link>
                         <div className='header--main-links'>
                             <span onClick={() => { scrollToSection('home-section') }}>Home</span>
                             <span onClick={() => { scrollToSection('artist-section') }}>Playlists</span>

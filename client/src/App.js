@@ -24,7 +24,6 @@ const App = () => {
       <Router>
         <Fragment>
           <Switch>
-            <Route exact path='/' component={LandingPage} />
             <Route component={Routes} />
           </Switch>
         </Fragment>

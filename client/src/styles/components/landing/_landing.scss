@@ -40,5 +40,14 @@
         word-break: break-word;
     }
 }
+@media(max-width: 650px){
+    .landing--hero {
+        top: 40%;
+        width: 85%;
+    }
+    .landing--hero h1 {
+        font-size: 3.15rem;
+    }
+}
 
 

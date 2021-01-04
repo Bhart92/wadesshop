@@ -32,16 +32,23 @@
 
 body{
     color: black;
-    background-color: white;
+    background-color: $black;
     font-family: Helvetica, Arial, sans-serif;
     font-size: $m-size;
     line-height: 1.6;
-    overflow-x: hidden!important;
     transition: all .35s ease;
     position: relative;
+    overflow-y: scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
 
-
+body::-webkit-scrollbar {
+  display: none;
+}  
+.body-overflow{
+    overflow: hidden!important;
+}
 
 h1{
   margin: 0;

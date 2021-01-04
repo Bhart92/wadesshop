@@ -152,6 +152,11 @@
   .bm-item span{
     padding: 0 15px;
   }
+  @media(max-width: 800px){
+    .bm-item {
+      font-size: 1.7rem;
+    }
+  }
   @media(max-width: 650px){
     .bm-menu-wrap{
         width: 65%!important;
