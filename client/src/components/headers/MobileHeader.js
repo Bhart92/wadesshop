@@ -63,7 +63,7 @@ const MobileHeader = () => {
                         <span className="menu-item"><Link to='/'>Home</Link></span>
                         <span className="menu-item"><Link to='/'>Artist</Link></span>
                         <span><Link to='/ourlabel'>Our Label</Link></span>
-                        <span>Store</span>
+                        <span><Link to='/store'>Store</Link></span>
                         <div className='header--social-links__mobile'>
                             <i class="fab fa-twitter"></i>
                             <i class="fab fa-instagram"></i>
@@ -107,7 +107,7 @@ const MobileHeader = () => {
                         <span className="menu-item" onClick={() => { mobileScrollToSection('home-section') }}>Home</span>
                         <span className="menu-item" onClick={() => { mobileScrollToSection('artist-section') }}>Artist</span>
                         <span><Link to='/ourlabel'>Our Label</Link></span>
-                        <span>Store</span>
+                        <span><Link to='/store'>Store</Link></span>
                         <div className='header--social-links__mobile'>
                             <i class="fab fa-twitter"></i>
                             <i class="fab fa-instagram"></i>

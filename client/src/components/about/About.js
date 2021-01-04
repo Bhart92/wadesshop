@@ -1,50 +1,12 @@
 import React, {useState, Fragment} from 'react';
-import {isMobile, isTablet, isBrowser} from 'react-device-detect';
-import { slide as Menu } from 'react-burger-menu'
-import HamburgerMenu from 'react-hamburger-menu';
-import DesktopHeader from '../headers/DesktopHeader';
-import MobileHeader from '../headers/MobileHeader';
-import { Link } from 'react-router-dom';
+import LinksHeader from '../headers/LinksHeader';
+
 
 const About = () => {
-    const [ isOpen, setIsOpen ] = useState(false);
-    const toggleMenu = () => {
-        document.querySelector('body').classList.toggle('body-overflow');
-        setIsOpen(!isOpen);
-    };
   return (
       <Fragment>
-        <Fragment>
-            
-            {isMobile && (
-                <MobileHeader />
-            )}
-            {isTablet && (
-                <MobileHeader />
-            )}
-            {isBrowser && (
             <Fragment>
-                    <div className='header'>
-                            <div className='header--logo-links'>
-                                <div className='header--logo'>
-                                    <i class="fab fa-cotton-bureau"></i>
-                                </div>
-                                <div className='header--main-links'>
-                                    <span><Link to='/'>Home</Link></span>
-                                    <span><Link to='/'>Playlists</Link></span>
-                                    <span><Link to='/ourlabel' />Our Label</span>
-                                    <span>Store</span>
-                                </div>
-                            </div>
-                            <div className='header--social-links'>
-                                <i class="fab fa-twitter"></i>
-                                <i class="fab fa-instagram"></i>
-                                <i class="fab fa-facebook"></i>
-                                <i class="fab fa-spotify"></i>
-                            </div>          
-                    </div>
-                </Fragment>)
-                }
+                <LinksHeader />
             </Fragment>
 
         <Fragment>

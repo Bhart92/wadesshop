@@ -22,7 +22,7 @@ const DesktopHeader = () => {
                             <span onClick={() => { scrollToSection('home-section') }}>Home</span>
                             <span onClick={() => { scrollToSection('artist-section') }}>Playlists</span>
                             <span><Link to='/ourlabel'>Our Label</Link></span>
-                            <span>Store</span>
+                            <span><Link to='/store'>Store</Link></span>
                         </div>
                     </div>
                     <div className='header--social-links'>
