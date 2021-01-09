@@ -15,7 +15,7 @@ const DesktopHeader = () => {
             <div className='header'>
                     <div className='header--logo-links'>
                         <Link to='/'><div className='header--logo'>
-                            <i class="fab fa-cotton-bureau"></i>
+                            <i className="fab fa-cotton-bureau"></i>
                         </div></Link>
                         <div className='header--main-links'>
                             <span onClick={() => { scrollToSection('home-section') }}>Home</span>
@@ -25,10 +25,10 @@ const DesktopHeader = () => {
                         </div>
                     </div>
                     <div className='header--social-links'>
-                        <i class="fab fa-twitter"></i>
-                        <i class="fab fa-instagram"></i>
-                        <i class="fab fa-facebook"></i>
-                        <i class="fab fa-spotify"></i>
+                        <i className="fab fa-twitter"></i>
+                        <i className="fab fa-instagram"></i>
+                        <i className="fab fa-facebook"></i>
+                        <i className="fab fa-spotify"></i>
                     </div>          
             </div>
         </Fragment>

@@ -1,13 +1,14 @@
-import React, { Fragment} from 'react';
+import React, { useEffect, Fragment} from 'react';
 // import LandingPage from './components/landing/LandingPage';
 import Routes from './components/routing/Routes';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 // Redux
-// import store from './store';
+import store from './store';
 // import setAuthToken from './utils/setAuthToken';
 import './styles/styles.scss';
-// import { Provider } from 'react-redux';
+import { Provider } from 'react-redux';
 // import { loadUser } from './actions/auth';
 
 // if (localStorage.token) {
@@ -15,12 +16,10 @@ import './styles/styles.scss';
 // }
 
 const App = () => {
-  // useEffect(() => {
-  //   store.dispatch(loadUser());
-  // }, []);
 
   return (
-    // <Provider store={store}>
+
+    <Provider store={store}>
       <Router>
         <Fragment>
           <Switch>
@@ -28,7 +27,7 @@ const App = () => {
           </Switch>
         </Fragment>
       </Router>
-    // </Provider>
+     </Provider>
   );
 };
 

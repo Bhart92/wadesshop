@@ -3,6 +3,7 @@ import About from '../about/About';
 import NotFound from '../landing/NotFound';
 import LandingPage from '../landing/LandingPage';
 import StoreIndex from '../store/StoreIndex';
+import { connect } from 'react-redux';
 
 
 import { Route, Switch } from 'react-router-dom';
@@ -21,5 +22,7 @@ const Routes = ({isAuthenticated}) => {
   );
 };
 
-
-export default Routes;
+const mapStateToProps = state => ({
+  products: state.products
+});
+export default connect(mapStateToProps)(Routes);

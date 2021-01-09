@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 
+
 const app = express();
 
 // //Connect DB
@@ -17,7 +18,7 @@ app.use(function(req, res, next) {
   });
 
 //Define Routes
-// app.use('/api/users', require('./routes/api/users'));
+app.use('/api/store', require('./routes/api/store'));
 // app.use('/api/auth', require('./routes/api/auth'));
 // app.use('/api/workouts', require('./routes/api/workouts'));
 

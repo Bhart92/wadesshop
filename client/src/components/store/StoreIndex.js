@@ -1,10 +1,12 @@
-import React, { Fragment } from 'react';
+import React, { useEffect, Fragment } from 'react';
 import LinksHeader from '../headers/LinksHeader';
 import ProductDisplay from '../store/ProductDisplay';
 import Footer from '../footer/Footer';
+import Client from 'shopify-buy';
 // import PropTypes from 'prop-types';
 
 const StoreIndex = () => {
+
     return (
         <Fragment>
             <Fragment>

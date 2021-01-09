@@ -7,13 +7,13 @@ const Footer = () => {
             <div className='footer'>
                 <div className='footer--icons'>
                 <div className='footer--logo'>
-                    <i class="fab fa-cotton-bureau"></i>
+                    <i className="fab fa-cotton-bureau"></i>
                 </div>
                  <div className='footer--extra-icons'>
-                 <i class="fas fa-microphone-alt"></i>
-                 <i class="fas fa-tshirt"></i>
-                 <i class="fas fa-gem"></i>
-                 <i class="fas fa-record-vinyl"></i>
+                 <i className="fas fa-microphone-alt"></i>
+                 <i className="fas fa-tshirt"></i>
+                 <i className="fas fa-gem"></i>
+                 <i className="fas fa-record-vinyl"></i>
                  </div>
                  <span>Serving the community for over 15 years</span>
                 </div>
