@@ -18,7 +18,7 @@ const ProductDisplay = ({GetAllProducts, products}) => {
 
 
         // RETURNS AN ARRAY OF ITEMS WITH CATEGORIES MATCHING THE PASSED IN STRING // NEED TO CREATE LINK FOR EACH FILTER AND USE THE NEW ARRAY FOR DISPLAY
-        console.log(filterProducts(products.data, 'T Shirt'))
+        // console.log(filterProducts(products.data, 'T Shirt'))
     
     
     

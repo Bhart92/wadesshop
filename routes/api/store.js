@@ -21,17 +21,17 @@ router.get('/', async (req, res) => {
 // @route  GET api/auth
 // @desc   Retreives categories list
 // @access Public
-router.get('/categories', async (req, res) => {
-  try {
-     const filteredData = await commerce.categories.retrieve();
+// router.get('/categories', async (req, res) => {
+//   try {
+//      const filteredData = await commerce.categories.retrieve();
 
-     res.json(filteredData)
+//      res.json(filteredData)
 
-  } catch (error) {
-    res.send('Internal Error, Please go back.');
-  }
+//   } catch (error) {
+//     res.send('Internal Error, Please go back.');
+//   }
 
-});
+// });
 
 
 module.exports = router;
