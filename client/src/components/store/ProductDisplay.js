@@ -1,47 +1,87 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
+import FilterBar from './FilterBar';
+import Spinner from '../layout/Spinner';
+import { GetAllProducts } from '../../actions/shopify';
+import { connect } from 'react-redux';
+import Pagination from '@material-ui/lab/Pagination';
+import usePagination from "../pagination/Pagination";
+import filterProducts from "../filter/filter";
 
-const ProductDisplay = () => {
-    const storeData = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
+
+
+const ProductDisplay = ({GetAllProducts, products}) => {
+    useEffect(() => {
+        GetAllProducts();
+    }, [GetAllProducts]);
+
+
+        // RETURNS AN ARRAY OF ITEMS WITH CATEGORIES MATCHING THE PASSED IN STRING // NEED TO CREATE LINK FOR EACH FILTER AND USE THE NEW ARRAY FOR DISPLAY
+        console.log(filterProducts(products.data, 'T Shirt'))
+    
+    
+    
+    const PER_PAGE = 8;
+    let _DATA = usePagination(!products.data ? products.data = [] : products.data, PER_PAGE);
+    let [page, setPage] = useState(1);
+    if(!products.data){
+        return <Redirect to='/' />;
+    }
+    const count = Math.ceil(products.data.length / PER_PAGE);
+    const handleChange = (e, p) => {
+        setPage(p);
+        _DATA.jump(p);
+    };
+    
+
     return (
         <Fragment>
             <div className='product-container'>
-                <div className='product--filter-bar'>
-                    <h2>Filter</h2>
-                    <div className='filter-bar--clothes'>
-                        <h3>Clothes</h3>
-                        <ul>
-                            <li><span>></span>Shirts</li>
-                            <li><span>></span>Pants</li>
-                            <li><span>></span>Accessories</li>
-                        </ul>
-                    </div>
-                    <div className='filter-bar--jewlery'>
-                    <h3>jewlery</h3>
-                    <ul>
-                            <li><span>></span>Necklaces</li>
-                            <li><span>></span>Rings</li>
-                            <li><span>></span>Watches</li>
-                        </ul>
-                    </div>
-
-                </div>
+                <Fragment><FilterBar /></Fragment>
                 <div className='product--item-list'>
-                    <div className='product--pagination-container'>
-                        <div className='pagination--page-num'> <span>1 of 3 | 1 2 3 4 5</span></div>
+                    <div className='pagination-container'>
+                    <Pagination
+                        count={count}
+                        size="large"
+                        page={page}
+                        variant="outlined"
+                        shape="rounded"
+                        onChange={handleChange}
+                    />
                     </div>
                     <div className='product--cards'>
-                        {storeData.map((card) => {
-                            return (
-                                <div className='product--card'>
-                                    <div className='product-image'></div>
-                                    <div className='product-title'><h2>T Shirt</h2><span>Sub-Title</span></div>
-                                    <div className='product-price'><span>$25.99</span><button>Add to Cart</button></div>
-                                </div>
-                            )
-                        })}
+                        {products.data === undefined || products.data.length === 0 ? 
+                        (
+                            <Fragment>
+                                <Spinner />
+                            </Fragment>
+                        ) : (
+                            <Fragment>
+                                {_DATA.currentdata().map((card) => { 
+                                    return (
+                                        <div className='product--card'>
+                                            <div className='product-image' style={{backgroundImage: `url(${card.media.source})`}}></div>
+                                            <div className='product-title'><h2>{card.name}
+                                            </h2><span>{card.categories.map((cat) => cat.name)}</span></div>
+                                            <div className='product-price'><span>{card.price.formatted_with_symbol}</span><button>Add to Cart</button></div>
+                                        </div>
+                                    )
+                                })}
+                            </Fragment>
+                        )
+                    }
+
                     </div>
-                    <div className='product--pagination-container'>
-                        <div className='pagination--page-num'> <span>1 of 3 | 1 2 3 4 5</span></div>
+                    <div className='pagination-container__bottom'>
+                    <Pagination
+                        count={count}
+                        size="large"
+                        page={page}
+                        variant="outlined"
+                        shape="rounded"
+                        onChange={handleChange}
+                    />
                     </div>
                 </div>
 
@@ -50,4 +90,12 @@ const ProductDisplay = () => {
     )
 }
 
-export default ProductDisplay;
+ProductDisplay.propTypes = {
+    GetAllProducts: PropTypes.func.isRequired
+  };
+  
+const mapStateToProps = state => ({
+    products: state.products
+  });
+
+export default connect(mapStateToProps, {GetAllProducts})(ProductDisplay);

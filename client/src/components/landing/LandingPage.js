@@ -1,20 +1,19 @@
 import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import BackgroundSlider from 'react-background-slider'
 import SocialMedia from '../footer/SocialMedia';
 import Footer from '../footer/Footer';
-import { GetAllProducts } from '../../actions/shopify';
-import { connect } from 'react-redux';
 import DesktopHeader from '../headers/DesktopHeader';
 import MobileHeader from '../headers/MobileHeader';
+import { GetAllProducts } from '../../actions/shopify';
 import {isMobile, isTablet, isBrowser} from 'react-device-detect';
 import ArtistPreview from '../artists/ArtistPreview';
 
-const LandingPage = ({GetAllProducts}) => {
+const LandingPage = ({GetAllProducts, products}) => {
     useEffect(() => {
         GetAllProducts();
-    }, [GetAllProducts])
-    
+    }, [GetAllProducts]);
     return (
         <Fragment>
         <Fragment>
@@ -57,7 +56,6 @@ const LandingPage = ({GetAllProducts}) => {
         </Fragment>
     )
 }
-
 LandingPage.propTypes = {
     GetAllProducts: PropTypes.func.isRequired
   };
@@ -65,6 +63,4 @@ LandingPage.propTypes = {
 const mapStateToProps = state => ({
     products: state.products
   });
-
-  
-  export default connect(mapStateToProps, {GetAllProducts})(LandingPage);
+export default connect(mapStateToProps, {GetAllProducts})(LandingPage);

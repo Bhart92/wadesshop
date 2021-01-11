@@ -1,0 +1,41 @@
+
+.pagination-container{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 45px;
+    width: 95%;
+    margin: 10px auto;
+    padding-bottom: 10px;
+    border-bottom: .001px solid rgba(255, 255, 255, .1);
+    &:last-of-type{
+        border-top: .001px solid rgba(255, 255, 255, .1);
+
+    }
+}
+.pagination-container__bottom{
+    @extend .pagination-container;
+    padding: 0;
+    border-bottom: none;
+    padding-top: 10px;
+}
+.pagination--page-num{
+    span{
+        font-size: 1.65rem;
+    }
+}
+
+.MuiPaginationItem-outlined {
+    border: 1px solid rgba(255, 255, 255, .35)!important;
+}
+.MuiPaginationItem-page.Mui-selected {
+    background-color: rgba(0, 0, 0, 0.06)!important;
+}
+.MuiPaginationItem-root{
+    color: $white!important;
+    margin: 0 1.5px!important;
+    &:last-of-type{
+        padding-top: 5px;
+    }
+}
+

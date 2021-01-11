@@ -1,8 +1,7 @@
-import React, { useEffect, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import LinksHeader from '../headers/LinksHeader';
 import ProductDisplay from '../store/ProductDisplay';
 import Footer from '../footer/Footer';
-import Client from 'shopify-buy';
 // import PropTypes from 'prop-types';
 
 const StoreIndex = () => {
@@ -15,7 +14,7 @@ const StoreIndex = () => {
             <div className='store-container'>
                 <h1>Store Name</h1>
                 <div className='store-logo'>
-                    <i class="fab fa-cotton-bureau"></i>
+                    <i className="fab fa-cotton-bureau"></i>
                 </div>
                 <Fragment>
                     <ProductDisplay />
