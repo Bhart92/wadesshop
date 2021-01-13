@@ -4,6 +4,17 @@
     display: flex;
     margin: 0 0 5rem 0;
 }
+select{
+    margin-top: 5px;
+    background: transparent;
+    padding: 5px;
+    &:selected{
+        color: $black;
+    }
+}
+option{
+    color: $black!important;
+}
 .product--filter-bar{
     margin-top: 45px;
     background: transparent;

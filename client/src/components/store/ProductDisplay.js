@@ -7,25 +7,35 @@ import { GetAllProducts } from '../../actions/shopify';
 import { connect } from 'react-redux';
 import Pagination from '@material-ui/lab/Pagination';
 import usePagination from "../pagination/Pagination";
-import filterProducts from "../filter/filter";
+// import filterProducts from "../filter/filter";
+import store from '../../store.js';
+import { setFilteredProducts, clearFilters} from '../../actions/filters';
+import filterSelector from '../../selectors/filterSelector';
+
+
+import {
+    GET_PRODUCTS
+} from '../../actions/types';
 
 
 
-const ProductDisplay = ({GetAllProducts, products}) => {
+const ProductDisplay = ({GetAllProducts, setFilteredProducts, clearFilters, products, filters}) => {
     useEffect(() => {
-        GetAllProducts();
-    }, [GetAllProducts]);
+        if(products.length === 0) GetAllProducts();
+        clearFilters();
+    }, [clearFilters]);
 
-
-        // RETURNS AN ARRAY OF ITEMS WITH CATEGORIES MATCHING THE PASSED IN STRING // NEED TO CREATE LINK FOR EACH FILTER AND USE THE NEW ARRAY FOR DISPLAY
-        // console.log(filterProducts(products.data, 'T Shirt'))
-    
-    
-    
     const PER_PAGE = 8;
-    let _DATA = usePagination(!products.data ? products.data = [] : products.data, PER_PAGE);
     let [page, setPage] = useState(1);
-    if(!products.data){
+
+
+    const filtered = filterSelector(products, filters)
+    console.log(filtered)
+
+    const _DATA = usePagination(!products.data ? products.data = [] : filtered, PER_PAGE);
+    // console.log(products);
+
+    if(!products){
         return <Redirect to='/' />;
     }
     const count = Math.ceil(products.data.length / PER_PAGE);
@@ -33,12 +43,47 @@ const ProductDisplay = ({GetAllProducts, products}) => {
         setPage(p);
         _DATA.jump(p);
     };
-    
-
+    const handleClick = async (e) => {
+        const array = await products.data.filter((item) => item.categories[0].name === e.target.value);
+        setFilteredProducts(e.target.value);
+    };
     return (
         <Fragment>
             <div className='product-container'>
-                <Fragment><FilterBar /></Fragment>
+                {/* <Fragment><FilterBar /></Fragment> */}
+                <div className='product--filter-bar'>
+            <h2>Filter</h2>
+            <div className='filter-bar--clothes'>
+                <h3>Clothes</h3>
+                <ul>
+                    <li><span>></span><input onClick={(e) => {
+                        handleClick(e)
+                        }} type="radio" name="filters" value="T Shirt" /><label htmlFor="T Shirt">&nbsp;Shirts</label>
+                        </li>
+                    <li><span>></span><input onClick={(e) => {
+                        handleClick(e)
+                        }} type="radio" name="filters" value="Pants" /><label htmlFor="Pants">&nbsp;Pants</label></li>
+                    <li><span>></span><input onClick={(e) => {
+                        handleClick(e)
+                        }}type="radio" name="filters" value="Accessories" /><label htmlFor="Accessories">&nbsp;Accessories</label></li>
+                </ul>
+            </div>
+            <div className='filter-bar--jewlery'>
+            <h3>jewlery</h3>
+            <ul>
+                    <li onClick={(e) => {
+                        handleClick(e)
+                        }}><span>></span><input type="radio" name="filters" value="Necklaces" /><label htmlFor="Necklaces">&nbsp;Necklaces</label>
+                        </li>
+                    <li onClick={(e) => {
+                        handleClick(e)
+                        }}><span>></span><input type="radio" name="filters" value="Rings" /><label htmlFor="Rings">&nbsp;Rings</label></li>
+                    <li onClick={(e) => {
+                        handleClick(e)
+                        }}><span>></span><input type="radio" name="filters" value="Watches" /><label htmlFor="Watches">&nbsp;Watches</label></li>
+                </ul>
+            </div>
+    </div>
                 <div className='product--item-list'>
                     <div className='pagination-container'>
                     <Pagination
@@ -91,11 +136,20 @@ const ProductDisplay = ({GetAllProducts, products}) => {
 }
 
 ProductDisplay.propTypes = {
-    GetAllProducts: PropTypes.func.isRequired
-  };
-  
-const mapStateToProps = state => ({
-    products: state.products
-  });
+    GetAllProducts: PropTypes.func.isRequired,
+    setFilteredProducts: PropTypes.func.isRequired,
+    clearFilters: PropTypes.func.isRequired
 
-export default connect(mapStateToProps, {GetAllProducts})(ProductDisplay);
+  };
+
+
+  const mapStateToProps = (state) => {
+    const visibleExpenses = filterSelector(state.products, state.filters);
+    return {
+        products: state.products,
+        filters: state.filters,
+        productCount: visibleExpenses.length,
+    };
+  };
+
+export default connect(mapStateToProps, {GetAllProducts, clearFilters, setFilteredProducts})(ProductDisplay);

@@ -12,7 +12,7 @@ import ArtistPreview from '../artists/ArtistPreview';
 
 const LandingPage = ({GetAllProducts, products}) => {
     useEffect(() => {
-        GetAllProducts();
+        if(products.length === 0) GetAllProducts();
     }, [GetAllProducts]);
     return (
         <Fragment>
