@@ -1,4 +1,4 @@
-import { GET_PRODUCTS } from '../actions/types';
+import { GET_PRODUCTS, GET_CATEGORIES } from '../actions/types';
 
 const initialState = [];
 
@@ -7,6 +7,8 @@ export default function(state = initialState, action) {
 
   switch (type) {
     case GET_PRODUCTS:
+    case GET_CATEGORIES:
+
       return {
         ...payload
       };

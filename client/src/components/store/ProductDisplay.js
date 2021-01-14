@@ -9,7 +9,7 @@ import Pagination from '@material-ui/lab/Pagination';
 import usePagination from "../pagination/Pagination";
 // import filterProducts from "../filter/filter";
 import store from '../../store.js';
-import { setFilteredProducts, clearFilters} from '../../actions/filters';
+import { clearFilters} from '../../actions/filters';
 import filterSelector from '../../selectors/filterSelector';
 
 
@@ -19,7 +19,7 @@ import {
 
 
 
-const ProductDisplay = ({GetAllProducts, setFilteredProducts, clearFilters, products, filters}) => {
+const ProductDisplay = ({GetAllProducts, clearFilters, products, filters}) => {
     useEffect(() => {
         if(products.length === 0) GetAllProducts();
         clearFilters();
@@ -43,47 +43,10 @@ const ProductDisplay = ({GetAllProducts, setFilteredProducts, clearFilters, prod
         setPage(p);
         _DATA.jump(p);
     };
-    const handleClick = async (e) => {
-        const array = await products.data.filter((item) => item.categories[0].name === e.target.value);
-        setFilteredProducts(e.target.value);
-    };
     return (
         <Fragment>
             <div className='product-container'>
-                {/* <Fragment><FilterBar /></Fragment> */}
-                <div className='product--filter-bar'>
-            <h2>Filter</h2>
-            <div className='filter-bar--clothes'>
-                <h3>Clothes</h3>
-                <ul>
-                    <li><span>></span><input onClick={(e) => {
-                        handleClick(e)
-                        }} type="radio" name="filters" value="T Shirt" /><label htmlFor="T Shirt">&nbsp;Shirts</label>
-                        </li>
-                    <li><span>></span><input onClick={(e) => {
-                        handleClick(e)
-                        }} type="radio" name="filters" value="Pants" /><label htmlFor="Pants">&nbsp;Pants</label></li>
-                    <li><span>></span><input onClick={(e) => {
-                        handleClick(e)
-                        }}type="radio" name="filters" value="Accessories" /><label htmlFor="Accessories">&nbsp;Accessories</label></li>
-                </ul>
-            </div>
-            <div className='filter-bar--jewlery'>
-            <h3>jewlery</h3>
-            <ul>
-                    <li onClick={(e) => {
-                        handleClick(e)
-                        }}><span>></span><input type="radio" name="filters" value="Necklaces" /><label htmlFor="Necklaces">&nbsp;Necklaces</label>
-                        </li>
-                    <li onClick={(e) => {
-                        handleClick(e)
-                        }}><span>></span><input type="radio" name="filters" value="Rings" /><label htmlFor="Rings">&nbsp;Rings</label></li>
-                    <li onClick={(e) => {
-                        handleClick(e)
-                        }}><span>></span><input type="radio" name="filters" value="Watches" /><label htmlFor="Watches">&nbsp;Watches</label></li>
-                </ul>
-            </div>
-    </div>
+                <Fragment><FilterBar /></Fragment>
                 <div className='product--item-list'>
                     <div className='pagination-container'>
                     <Pagination
@@ -137,7 +100,6 @@ const ProductDisplay = ({GetAllProducts, setFilteredProducts, clearFilters, prod
 
 ProductDisplay.propTypes = {
     GetAllProducts: PropTypes.func.isRequired,
-    setFilteredProducts: PropTypes.func.isRequired,
     clearFilters: PropTypes.func.isRequired
 
   };
@@ -152,4 +114,4 @@ ProductDisplay.propTypes = {
     };
   };
 
-export default connect(mapStateToProps, {GetAllProducts, clearFilters, setFilteredProducts})(ProductDisplay);
+export default connect(mapStateToProps, {GetAllProducts, clearFilters})(ProductDisplay);

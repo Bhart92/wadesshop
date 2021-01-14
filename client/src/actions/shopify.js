@@ -16,6 +16,18 @@ export const GetAllProducts = () => async dispatch => {
         
     }
 };
+// Get all products
+export const GetAllCategories = (categories = []) => async dispatch => {
+    try {
+        const res = await axios.get('/api/store');
+        dispatch({
+            type: GET_PRODUCTS,
+            categories: res.data
+          });
+    } catch (err) {
+        
+    }
+};
 
 // // Get All 
 // export const GetCategories = () => async dispatch => {
